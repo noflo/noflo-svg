@@ -1,0 +1,26 @@
+{
+  "name": "noflo-svg",
+  "description": "noflo-canvas structures render to svg",
+  "author": "forresto <forrest@sembiki.com>",
+  "repo": "forresto/noflo-svg",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+    "noflo/noflo": "*"
+  },
+  "remotes": [
+    "https://raw.githubusercontent.com"
+  ],
+  "scripts": [
+    "index.js",
+    "components/DrawSVG.coffee"
+  ],
+  "json": [
+    "component.json"
+  ],
+  "noflo": {
+    "components": {
+      "DrawSVG": "components/DrawSVG.coffee"
+    }
+  }
+}
