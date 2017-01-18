@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - '4.6'
+- '4.6'
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: etLVsGntHQxMqAsPA0ebxvMiLU7EVj1iXXR+VficcvmNZgIkJ4U71gekuvrpRBg53ur1Mr0aB/JpazkGEHr87v92VUjcDCVphzuNLWKbXjyLNX1rizB7fCr0URgfMbczcoHIV+kqkhxhbU1SPOaCFJD3JvAHOtFqy7bJ2w8JlA8=
+  on:
+    tags: true
+    repo: noflo/noflo-svg
