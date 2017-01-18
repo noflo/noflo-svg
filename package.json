@@ -10,12 +10,7 @@
     "type": "git",
     "url": "git://github.com/noflo/noflo-svg.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "undefined/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "scripts": {
     "test": "grunt test"
   },
@@ -35,7 +30,9 @@
     "grunt-noflo-manifest": "~0.1.11",
     "grunt-noflo-browser": "^1.1.4"
   },
-  "keywords": [],
+  "keywords": [
+    "noflo"
+  ],
   "noflo": {
     "components": {
       "DrawSVG": "components/DrawSVG.coffee"
