@@ -41,17 +41,25 @@ module.exports = ->
       tasks: ['test']
 
     # BDD tests on Node.js
-    cafemocha:
+    mochaTest:
       nodejs:
         src: ['spec/*.coffee']
         options:
           reporter: 'spec'
 
+    # Generate runner.html
+    noflo_browser_mocha:
+      all:
+        options:
+          scripts: ["../browser/<%=pkg.name%>.js"]
+        files:
+          'spec/runner.html': ['spec/*.js']
     # BDD tests on browser
     mocha_phantomjs:
       options:
         output: 'spec/result.xml'
         reporter: 'spec'
+        failWithOutput: true
       all: ['spec/runner.html']
 
     # Coding standards
@@ -69,7 +77,7 @@ module.exports = ->
 
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-contrib-watch'
-  @loadNpmTasks 'grunt-cafe-mocha'
+  @loadNpmTasks 'grunt-mocha-test'
   @loadNpmTasks 'grunt-mocha-phantomjs'
   @loadNpmTasks 'grunt-coffeelint'
 
@@ -86,9 +94,10 @@ module.exports = ->
     @task.run 'coffee'
     @task.run 'noflo_manifest'
     if target is 'all' or target is 'nodejs'
-      @task.run 'cafemocha'
+      @task.run 'mochaTest'
     if target is 'all' or target is 'browser'
       @task.run 'noflo_browser'
+      @task.run 'noflo_browser_mocha'
       @task.run 'mocha_phantomjs'
 
   @registerTask 'default', ['test']
